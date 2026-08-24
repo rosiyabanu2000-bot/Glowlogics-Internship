@@ -1,35 +1,36 @@
-# 🏦 Loan Approval Prediction System
+# 📈 Sales Forecasting Using Machine Learning
 
 ## 📌 Project Overview
 
-The Loan Approval Prediction System is a Machine Learning project
-that predicts whether a loan application is likely to be approved
-or rejected based on applicant information.
+This project is a Sales Forecasting system developed using Python and Machine Learning.
+
+The system analyzes historical sales transaction data and predicts future sales transaction volume using multiple machine learning algorithms.
 
 ## 🎯 Objective
 
-The objective of this project is to build a classification model
-that can predict loan approval using applicant financial and
-personal information.
+The main objective of this project is to:
+
+- Analyze historical sales data
+- Perform data cleaning
+- Perform Exploratory Data Analysis (EDA)
+- Create useful visualizations
+- Generate machine learning features
+- Train multiple regression models
+- Compare model performance
+- Select the best-performing model
+- Predict future sales transactions
 
 ## 📊 Dataset
 
-The dataset contains 614 loan application records and 13 columns.
+The dataset contains sales transaction records with the following fields:
 
-Important features include:
+- `item_id` — Product/item identifier
+- `date` — Transaction date
+- `store_id` — Store identifier
 
-- Gender
-- Married
-- Dependents
-- Education
-- Self Employed
-- Applicant Income
-- Coapplicant Income
-- Loan Amount
-- Loan Amount Term
-- Credit History
-- Property Area
-- Loan Status
+Since the dataset does not contain a direct sales amount column, the number of transaction records per day is used as the sales target.
+
+Therefore, this project performs **daily sales transaction forecasting**.
 
 ## 🛠️ Technologies Used
 
@@ -41,54 +42,46 @@ Important features include:
 - Scikit-learn
 - Joblib
 
-## 🔄 Project Workflow
-
-1. Dataset collection
-2. Data loading
-3. Data cleaning
-4. Exploratory Data Analysis
-5. Data visualization
-6. Feature preparation
-7. Model training
-8. Model comparison
-9. Best model selection
-10. Loan prediction
-
 ## 🤖 Machine Learning Models
 
-The following models were trained:
+The following regression models were trained:
 
-- Logistic Regression
-- Decision Tree
-- Random Forest
-- K-Nearest Neighbors
+1. Linear Regression
+2. Decision Tree Regressor
+3. Random Forest Regressor
+4. Gradient Boosting Regressor
 
-## 📈 Evaluation Metrics
+## 📐 Evaluation Metrics
 
-Models were evaluated using:
+The models were evaluated using:
 
-- Accuracy
-- Precision
-- Recall
-- F1 Score
+- Mean Absolute Error (MAE)
+- Root Mean Squared Error (RMSE)
+- R² Score
 
-## 🏆 Best Model
+The model with the lowest RMSE was selected as the best model.
 
-The best model was selected based on the highest F1 Score.
+## 🔄 Project Workflow
 
-The actual model performance can be found in:
-
-`model_results.csv`
-
-## 🔮 Prediction System
-
-The prediction system accepts a new applicant's information and
-predicts:
-
-- Loan Approved
-- Loan Rejected
-
-Run:
-
-```bash
-python predict_loan.py
+```text
+Dataset
+   ↓
+Data Cleaning
+   ↓
+Exploratory Data Analysis
+   ↓
+Data Visualization
+   ↓
+Daily Sales Aggregation
+   ↓
+Feature Engineering
+   ↓
+Train/Test Split
+   ↓
+Multiple ML Models
+   ↓
+Model Evaluation
+   ↓
+Best Model Selection
+   ↓
+Prediction System
