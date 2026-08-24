@@ -1,41 +1,56 @@
-# 🎓 Student Performance Prediction
+# 📰 Fake News Detection System
 
 ## 📌 Project Overview
 
-This project focuses on predicting student academic performance using Machine Learning techniques.
+The Fake News Detection System is a Machine Learning project designed to classify news articles as **Fake** or **Real** based on their textual content.
 
-The system analyzes factors such as study hours, attendance, previous scores, assignment completion, sleep hours, and extracurricular activities to predict a student's final score.
+The system uses Natural Language Processing (NLP) techniques to convert news text into numerical features and applies Machine Learning classification algorithms to identify potentially fake news.
+
+---
 
 ## 🎯 Objectives
 
-* Analyze student performance data.
-* Clean and preprocess the dataset.
-* Perform Exploratory Data Analysis (EDA).
-* Visualize important patterns and relationships.
-* Prepare data for Machine Learning.
+* Detect whether a news article is Fake or Real.
+* Perform data cleaning and exploratory data analysis.
+* Convert textual data into numerical features using TF-IDF.
 * Train and compare multiple Machine Learning models.
-* Evaluate models using Accuracy, Precision, Recall, and F1-score.
+* Evaluate models using Accuracy, Precision, Recall, and F1-Score.
 * Select the best-performing model.
-* Build a student performance prediction system.
-* Test the system using a new student record.
+* Build a prediction system for new news articles.
+
+---
 
 ## 📊 Dataset
 
-The dataset contains **1,000 student records** with the following features:
+The project uses the **ISOT Fake and Real News Dataset**.
 
-| Feature                 | Description                                 |
-| ----------------------- | ------------------------------------------- |
-| `study_hours`           | Daily study hours                           |
-| `attendance`            | Student attendance percentage               |
-| `previous_score`        | Previous examination score                  |
-| `assignments_completed` | Number of completed assignments             |
-| `sleep_hours`           | Average daily sleep hours                   |
-| `extracurricular`       | Participation in extracurricular activities |
-| `final_score`           | Final examination score                     |
+The dataset contains:
 
-### Target Variable
+* Fake news articles
+* Real news articles
+* News titles
+* Article text
+* Subject/category
+* Publication date
 
-`final_score`
+### Dataset Statistics
+
+| Property       |  Value |
+| -------------- | -----: |
+| Total Articles | 46,962 |
+| Fake Articles  | 23,481 |
+| Real Articles  | 23,481 |
+| Total Columns  |      5 |
+
+### Dataset Columns
+
+* `title` — News headline
+* `text` — Full news article
+* `subject` — News category
+* `date` — Publication date
+* `label` — FAKE or REAL
+
+---
 
 ## 🛠️ Technologies Used
 
@@ -45,89 +60,243 @@ The dataset contains **1,000 student records** with the following features:
 * Matplotlib
 * Seaborn
 * Scikit-learn
-* VS Code
+* Joblib
+* TF-IDF
+* Natural Language Processing (NLP)
 
-## 📂 Project Structure
-
-```text
-Student-Performance-Prediction/
-│
-├── .venv/
-├── dataset.csv
-├── create_dataset.py
-├── student_performance.py
-├── requirements.txt
-├── README.md
-│
-└── screenshots/
-```
+---
 
 ## 🔄 Project Workflow
 
-1. Create project folder
-2. Get/create dataset
-3. Set up Python environment
-4. Load dataset with Pandas
-5. Clean the data
-6. Perform EDA
-7. Create visualizations
-8. Prepare Machine Learning features
-9. Train multiple models
-10. Compare model performance
-11. Select the best model
-12. Build prediction system
-13. Test with a new student
-14. Prepare documentation
-15. Prepare internship submission
+```text
+Dataset
+   ↓
+Data Loading
+   ↓
+Data Cleaning
+   ↓
+Exploratory Data Analysis
+   ↓
+Data Visualization
+   ↓
+Text Preprocessing
+   ↓
+TF-IDF Feature Extraction
+   ↓
+Train/Test Split
+   ↓
+Machine Learning Models
+   ↓
+Model Evaluation
+   ↓
+Best Model Selection
+   ↓
+Prediction System
+```
+
+---
+
+## 🧹 Data Cleaning
+
+The following preprocessing operations were performed:
+
+* Checked missing values.
+* Checked duplicate records.
+* Removed duplicate rows.
+* Removed rows with missing title or article text.
+* Removed unnecessary spaces.
+* Converted text columns into string format.
+* Removed empty article text.
+
+---
+
+## 📈 Exploratory Data Analysis
+
+The following analysis was performed:
+
+* Fake vs Real news distribution.
+* News subject distribution.
+* Title length analysis.
+* Article text length analysis.
+* Basic statistical analysis.
+
+---
+
+## 📊 Visualizations
+
+The project generates the following graphs:
+
+1. Fake vs Real News
+2. News Articles by Subject
+3. Title Length Distribution
+4. Article Text Length Distribution
+
+---
 
 ## 🤖 Machine Learning Models
 
-The following models will be evaluated:
+Three classification algorithms were trained and evaluated:
 
-* Linear Regression
-* Decision Tree
-* Random Forest
-* K-Nearest Neighbors
+### 1. Logistic Regression
 
-The models will be compared based on their performance metrics, and the best-performing model will be selected.
+A linear classification algorithm used to classify news articles into Fake and Real categories.
 
-## 📈 Model Evaluation
+### 2. Multinomial Naive Bayes
 
-The project will evaluate the trained models using:
+A probabilistic classification algorithm that works effectively with text-based features.
+
+### 3. Linear Support Vector Machine
+
+A linear classification algorithm that is commonly effective for high-dimensional text classification problems.
+
+---
+
+## 🔢 Feature Extraction
+
+The project uses **TF-IDF (Term Frequency–Inverse Document Frequency)** to convert news text into numerical feature vectors.
+
+The title and article text are combined before feature extraction.
+
+```text
+News Title + Article Text
+          ↓
+       TF-IDF
+          ↓
+Numerical Feature Vector
+          ↓
+Machine Learning Model
+```
+
+---
+
+## 📏 Evaluation Metrics
+
+The models are evaluated using:
 
 * Accuracy
 * Precision
 * Recall
-* F1-score
+* F1-Score
 
-The final results will be added after model training and evaluation.
+The model with the highest F1-Score is selected as the best model.
 
-## 🔮 Prediction System
+---
 
-The completed system will accept information about a new student, such as:
+## 🔍 Prediction System
 
-* Study hours
-* Attendance
-* Previous score
-* Assignments completed
-* Sleep hours
-* Extracurricular participation
+A separate Python script named `predict_news.py` is used to test new news articles.
 
-The selected Machine Learning model will then predict the student's expected final performance.
+Run:
 
-## 📸 Screenshots
+```bash
+python predict_news.py
+```
 
-Screenshots of the following stages will be added:
+The system asks for:
 
-* Dataset
-* Data cleaning
-* EDA
-* Data visualizations
-* Model comparison
-* Prediction output
+```text
+Enter news title:
+Enter news article text:
+```
 
-## 👩‍💻 Author
+It then predicts:
 
-**Student Performance Prediction — Machine Learning Project**
+```text
+Result: FAKE NEWS
+```
 
-Developed as part of an internship project.
+or
+
+```text
+Result: REAL NEWS
+```
+
+---
+
+## 📁 Project Structure
+
+```text
+Fake-News-Detection/
+│
+├── dataset/
+│   ├── fake_news.csv
+│   └── true_news.csv
+│
+├── screenshots/
+│   ├── fake_vs_real.png
+│   ├── subject_distribution.png
+│   ├── title_length.png
+│   └── text_length.png
+│
+├── .venv/
+│
+├── fake_news_detection.py
+├── predict_news.py
+├── best_fake_news_model.pkl
+├── tfidf_vectorizer.pkl
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## ▶️ How to Run
+
+### 1. Create virtual environment
+
+```bash
+python -m venv .venv
+```
+
+### 2. Activate environment
+
+```bash
+.venv\Scripts\activate
+```
+
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Train the models
+
+```bash
+python fake_news_detection.py
+```
+
+### 5. Run the prediction system
+
+```bash
+python predict_news.py
+```
+
+---
+
+## 📦 Requirements
+
+```text
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+joblib
+```
+
+---
+
+## ⚠️ Disclaimer
+
+This system is a Machine Learning classification project. Its prediction is based on patterns learned from the training dataset and should not be treated as independent verification of whether a news story is factually true.
+
+---
+
+## 👩‍💻 Project Type
+
+**Machine Learning / Natural Language Processing Project**
+
+**Domain:** Fake News Detection
+
+**Purpose:** Educational and internship project
