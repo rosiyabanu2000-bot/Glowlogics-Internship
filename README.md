@@ -1,32 +1,35 @@
-# 🛍️ Customer Segmentation using K-Means Clustering
+# 🏦 Loan Approval Prediction System
 
 ## 📌 Project Overview
 
-This project performs customer segmentation using Machine Learning and K-Means Clustering.
+The Loan Approval Prediction System is a Machine Learning project
+that predicts whether a loan application is likely to be approved
+or rejected based on applicant information.
 
-The objective is to group customers based on their:
+## 🎯 Objective
 
-- Age
-- Annual Income
-- Spending Score
+The objective of this project is to build a classification model
+that can predict loan approval using applicant financial and
+personal information.
 
-Customer segmentation helps businesses understand different customer groups and develop targeted marketing strategies.
+## 📊 Dataset
 
----
+The dataset contains 614 loan application records and 13 columns.
 
-## 🎯 Objectives
+Important features include:
 
-- Analyze customer demographic and spending data.
-- Perform data cleaning and exploratory data analysis.
-- Select relevant features for clustering.
-- Standardize the selected features.
-- Determine the optimal number of clusters using the Elbow Method.
-- Apply K-Means Clustering.
-- Visualize customer segments.
-- Evaluate clustering quality using Silhouette Score.
-- Generate business insights from customer segments.
-
----
+- Gender
+- Married
+- Dependents
+- Education
+- Self Employed
+- Applicant Income
+- Coapplicant Income
+- Loan Amount
+- Loan Amount Term
+- Credit History
+- Property Area
+- Loan Status
 
 ## 🛠️ Technologies Used
 
@@ -36,25 +39,7 @@ Customer segmentation helps businesses understand different customer groups and 
 - Matplotlib
 - Seaborn
 - Scikit-learn
-- VS Code
-
----
-
-## 📂 Dataset
-
-The project uses the Mall Customers dataset.
-
-The dataset contains 200 customer records with the following columns:
-
-| Column | Description |
-|---|---|
-| CustomerID | Unique customer identifier |
-| Gender | Customer gender |
-| Age | Customer age |
-| Annual Income (k$) | Annual income in thousands |
-| Spending Score (1-100) | Customer spending score |
-
----
+- Joblib
 
 ## 🔄 Project Workflow
 
@@ -63,89 +48,47 @@ The dataset contains 200 customer records with the following columns:
 3. Data cleaning
 4. Exploratory Data Analysis
 5. Data visualization
-6. Feature selection
-7. Feature scaling
-8. Elbow Method
-9. K-Means Clustering
-10. Cluster profiling
-11. Cluster visualization
-12. Silhouette Score evaluation
-13. Results generation
+6. Feature preparation
+7. Model training
+8. Model comparison
+9. Best model selection
+10. Loan prediction
 
----
+## 🤖 Machine Learning Models
 
-## 🤖 Machine Learning Algorithm
+The following models were trained:
 
-### K-Means Clustering
+- Logistic Regression
+- Decision Tree
+- Random Forest
+- K-Nearest Neighbors
 
-K-Means is an unsupervised machine learning algorithm that divides data points into a predefined number of clusters.
+## 📈 Evaluation Metrics
 
-In this project, K-Means is used to identify groups of customers with similar characteristics.
+Models were evaluated using:
 
----
+- Accuracy
+- Precision
+- Recall
+- F1 Score
 
-## 📉 Elbow Method
+## 🏆 Best Model
 
-The Elbow Method is used to identify a suitable number of clusters by analyzing the Within-Cluster Sum of Squares (inertia).
+The best model was selected based on the highest F1 Score.
 
-The inertia values are calculated for different values of K and plotted to identify the elbow point.
+The actual model performance can be found in:
 
----
+`model_results.csv`
 
-## 📊 Visualizations
+## 🔮 Prediction System
 
-The project generates the following visualizations:
+The prediction system accepts a new applicant's information and
+predicts:
 
-- Customer Age Distribution
-- Annual Income vs Spending Score
-- Elbow Curve
-- Customer Clusters
+- Loan Approved
+- Loan Rejected
 
----
+Run:
 
-## 📈 Model Evaluation
-
-The clustering result is evaluated using the Silhouette Score.
-
-A higher Silhouette Score generally indicates better-defined and better-separated clusters.
-
----
-
-## 💡 Business Insights
-
-Customer segmentation can help businesses:
-
-- Identify high-value customers.
-- Identify customers with high spending potential.
-- Develop targeted marketing campaigns.
-- Improve customer retention strategies.
-- Personalize offers and promotions.
-- Understand different customer groups.
-
----
-
-## 📁 Project Structure
-
-```text
-Customer_Segmentation/
-│
-├── data/
-│   └── Mall_Customers.csv
-│
-├── outputs/
-│   ├── age_distribution.png
-│   ├── income_vs_spending.png
-│   ├── elbow_curve.png
-│   ├── customer_clusters.png
-│   ├── customer_segments.csv
-│   └── cluster_summary.csv
-│
-├── screenshots/
-│
-├── .venv/
-│
-├── customer_segmentation.py
-│
-├── README.md
-│
-└── requirements.txt
+```bash
+python predict_loan.py
